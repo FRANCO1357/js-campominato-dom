@@ -74,6 +74,15 @@ main{
 }
 
 #grid .cell.clicked{
-    background-color: grey;
     cursor: not-allowed;
 }
+
+#grid .cell.safe{
+    background-color: grey;
+}
+
+#grid .cell.explode{
+    background-color: red;
+}
+
+

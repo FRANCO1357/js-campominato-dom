@@ -42,6 +42,24 @@ function play(){
         return bombs;
     }
 
+    // MOSTRO IL MESSAGGIO DI FINE PARTITA
+    function gameOver(score, hasWon){
+        const cells = document.querySelectorAll('.cell');
+
+        for (let i = 1; i < cells.length; i++){
+            cells[i].classList.add('clicked');
+        }
+
+        let message = '';
+        if (hasWon){
+            message = 'Complimenti hai vinto! Il tuo punteggio è ' + score;
+        } else{
+            message = 'Mi dispiace hai perso, il tuo punteggio è ' + score;
+        }
+
+        console.log(message);
+    }
+
     // RECUPERO LA GRIGLIA
     const grid = document.getElementById('grid');
 
@@ -56,7 +74,7 @@ function play(){
         return cell;
     }
 
-    // CREO LE BOMBE 
+    // EVOCO LA FUNZIONE PER CREARE LE BOMBE 
     const bombs = createBombs(totalBombs, cellNumber)
     console.log(bombs);
 
@@ -70,11 +88,23 @@ function play(){
                 return;
             }
 
-            console.log(i);
-            cell.classList.add('clicked');
+            // cell.classList.add('clicked')
 
-            // INCREMENTO IL PUNTEGGIO;
-            score++;
+            let cellInnerText = i;
+            console.log(cellInnerText);
+
+            // CONTROLLO SE HO BECCATO UNA BOMBA
+            if(bombs.includes(parseInt(cellInnerText))){
+                cell.classList.add('explode')
+                gameOver(score, false)
+            } else {
+                cell.classList.add('safe')
+                score++;
+                if(score - 1 == maxPoints){
+                    gameOver(maxPoints, true)
+                }
+            }
+
             console.log(score);
         })
 
