@@ -52,3 +52,11 @@ function play(){
 
 // AGGANCIO L'EVENT LISTENER
 playButton.addEventListener('click', play);
+
+// GENERO LE BOMBE
+let bomb = []
+
+for (let i = 1; i <= 16; i++){
+    bomb += Math.floor(Math.random() * 100) + 1 + ",";
+    console.log(bomb);
+}
