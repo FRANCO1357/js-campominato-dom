@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+img{
+    height: 8vh;
+}
+
+button{
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: yellowgreen;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+
+select{
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: yellowgreen;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+
+main{
+    background-color: grey;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid{
+    width: 80vh;
+    height: 80vh;
+    background-color: yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid .cell{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#grid .cell.easy{
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+}
+
+#grid .cell.medium{
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+
+#grid .cell.hard{
+    height: calc(100% / 8);
+    width: calc(100% / 8);
+}
+
+#grid .cell.clicked{
+    background-color: grey;
+    cursor: not-allowed;
+}
